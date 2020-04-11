@@ -7,16 +7,8 @@ Shape Version=11.00
 Screen=1920,1080
 MCAPVersion=12.2.0.3
 Key ID=Demo
-NLCnt=39
-TXCnt=2
-
-[shapedef]
-Name=Battery
-Line=0,0,22,0
-Line=22,-3,22,3
-Line=26,-7,26,7
-Line=26,0,48,0
-Current=32,8,16,8
+NLCnt=35
+TXCnt=0
 
 [shapedef]
 Name=Ground
@@ -155,18 +147,6 @@ Pin="Output",9,3,-13,-4
 Pin="VCC",4,-1,5,14
 
 [compdef]
-Name=Battery
-Definition=Battery
-Shape=Battery
-Mask=7937
-Used=51
-memo=Battery
-Label Offset=19,7,10,13
-PinCnt=2
-Pin="Plus",6,0,-4,-5
-Pin="Minus",0,0,-10,-5
-
-[compdef]
 Name=Pot
 Definition=Macro
 Shape=Pot
@@ -202,7 +182,7 @@ SpiceType=AMBIGUOUS
 Title_Block_Border=None
 Title_Block=False
 Show Nodes=False
-Show Voltages=True
+Show Voltages=False
 Show Current=False
 Show Power=False
 Show Condition=False
@@ -321,50 +301,6 @@ V=$GENERIC
 [Attr]
 ON=0,0,PACKAGE
 V
-
-[Comp]
-Name=Battery
-Px=48,80
-Rot=3
-Page=3
-
-[Attr]
-ON=-26,-41,PART
-V=V2
-Style=8192
-
-[Attr]
-ON=-26,-27,VALUE
-V=15
-Style=8192
-
-[Comp]
-Name=Ground
-Px=48,80
-Rot=7
-Page=3
-
-[Comp]
-Name=Battery
-Px=112,80
-Rot=3
-Page=3
-
-[Attr]
-ON=-26,-41,PART
-V=V3
-Style=8192
-
-[Attr]
-ON=-31,-27,VALUE
-V=-15
-Style=8192
-
-[Comp]
-Name=Ground
-Px=112,80
-Rot=7
-Page=3
 
 [Wire]
 Pxs=752,168,752,288
@@ -505,24 +441,6 @@ Rot=7
 
 [Wire]
 Pxs=576,384,576,400
-
-[Grid Text]
-Text="VC"
-Px=48,32
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
-Page=3
-CBorder=None
-
-[Grid Text]
-Text="VE"
-Px=112,32
-GridSnap=True
-JustifyH=Left
-JustifyV=Bottom
-Page=3
-CBorder=None
 
 [Schematic]
 CurrentSection 0=0
@@ -720,9 +638,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=83,96
+SB 3=50,48
 Scale 3=0.66666666666666663
-Px=143,261
+Px=198,215
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -786,7 +704,7 @@ Type=Text
 Print=False
 Enable=True
 Name=Models
-SB 0=38,1
+SB 0=0,1
 Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
 Comment Color=#008000
 WinBackGround Color=#FFFFFF
@@ -806,7 +724,7 @@ Scale 0=1
 Scale 1=1
 Scale 2=1
 Scale 3=1
-Px=207,71
+Px=371,393
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000

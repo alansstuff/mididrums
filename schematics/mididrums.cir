@@ -7,7 +7,7 @@ Shape Version=11.00
 Screen=1920,1080
 MCAPVersion=12.2.0.3
 Key ID=Demo
-NLCnt=35
+NLCnt=32
 TXCnt=0
 
 [shapedef]
@@ -182,8 +182,8 @@ SpiceType=AMBIGUOUS
 Title_Block_Border=None
 Title_Block=False
 Show Nodes=False
-Show Voltages=False
-Show Current=False
+Show Voltages=True
+Show Current=True
 Show Power=False
 Show Condition=False
 Show Pin Connections=False
@@ -318,6 +318,7 @@ Pxs=608,264,640,264
 Name=Resistor
 Px=824,368
 Rot=3
+COff=8,800,343,31,-50
 
 [Attr]
 ON=-24,-25,PART
@@ -326,7 +327,7 @@ Style=8192
 
 [Attr]
 ON=-39,-39,RESISTANCE
-V=180K
+V=100
 Style=8192
 
 [Attr]
@@ -415,32 +416,10 @@ V=50
 ON=0,0,PACKAGE
 V
 
-[Comp]
-Name=Resistor
-Px=576,448
-Rot=3
-
-[Attr]
-ON=-24,-25,PART
-V=R5
-Style=8192
-
-[Attr]
-ON=-39,-39,RESISTANCE
-V=99.9K
-Style=8192
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=Ground
-Px=576,448
-Rot=7
-
-[Wire]
-Pxs=576,384,576,400
+[Node Offsets]
+Section=0
+;Node,Page,GridX,GridY,OffsetX,OffsetY
+Offset=4,0,640,264,198,16
 
 [Schematic]
 CurrentSection 0=0
@@ -640,7 +619,7 @@ Scale 1=1
 Scale 2=1
 SB 3=50,48
 Scale 3=0.66666666666666663
-Px=198,215
+Px=119,367
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -1842,7 +1821,7 @@ StepSize="10%"
 MRUDockID=59419
 Floating=False
 LocalOffset=True
-Rect=0,-2,195,53
+Rect=1226,-2,1421,53
 
 [Slider]
 Analysis=DynamicDC
@@ -1858,11 +1837,27 @@ StepSize="10%"
 MRUDockID=59421
 Floating=False
 LocalOffset=True
-Rect=-2,-2,80,158
+Rect=-2,158,80,318
 
 [Slider]
 Analysis=DynamicDC
 Link="R5"
+Min="100"
+Max="100k"
+Default="180K"
+Format=3
+Method=Linear
+Show=True
+Font=Height=-15,FStyle=0,Color=#000000,Name=Arial
+StepSize="10%"
+MRUDockID=59421
+Floating=False
+LocalOffset=True
+Rect=-2,-2,52,158
+
+[Slider]
+Analysis=DynamicDC
+Link="R4"
 Min="100"
 Max="100k"
 Default="180K"
