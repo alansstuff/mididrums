@@ -3,7 +3,7 @@
 ***                                                                          ***
 ***                                                                          ***
 ***                         Dynamic DC of mididrums                          ***
-***                          2020-04-10 7:54:51 PM                           ***
+***                          2020-04-11 6:12:54 PM                           ***
 ********************************************************************************
 
 *****************************************************
@@ -22,12 +22,12 @@ Node         Voltage  Node         Voltage  Node         Voltage
 Operating Point for Devices of Type Resistor
 ============================================
 Instance:                R1         X1.R1         X1.R2       X1.Rout            R4
-V                    1.100       723.686u       42.321m        1.100         1.100 
+V                    1.100       322.042u       18.833m        1.100         1.100 
 Power DC Terms:
-PD                 121.000u        4.190n       14.329u        9.680m       12.100m
+PD                  24.200u      829.690p        2.838u        9.680m       12.100u
 
 DC Pin Currents:
-Ir                 110.000u        5.789u      338.571u        8.800m       11.000m
+Ir                  22.000u        2.576u      150.665u        8.800m       11.000u
 
 Device Variables:
 tc1                  0.000         0.000         0.000         0.000         0.000 
@@ -37,10 +37,10 @@ tc2                  0.000         0.000         0.000         0.000         0.0
 Instance:             X2.R1         X2.R2
 V                    1.100         1.100 
 Power DC Terms:
-PD                 121.000u      121.000u
+PD                  24.200u       24.200u
 
 DC Pin Currents:
-Ir                 110.000u      110.000u
+Ir                  22.000u       22.000u
 
 Device Variables:
 tc1                  0.000         0.000 
@@ -51,7 +51,7 @@ tc2                  0.000         0.000
 Operating Point for Devices of Type Capacitor
 =============================================
 Instance:             X1.C1         X1.C2
-V                  723.686u       42.321m
+V                  322.042u       18.833m
 Power DC Terms:
 PS                   0.000         0.000 
 
@@ -77,9 +77,9 @@ Operating Point for Devices of Type SPICE Source
 Instance:               V1
 V                   3.300 
 Power DC Terms:
-PG                363.000u
+PG                 72.600u
 
 DC Pin Currents:
-ISource          -110.000u
+ISource           -22.000u
 
 
