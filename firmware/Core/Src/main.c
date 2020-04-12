@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
+#include <tasks/mainTask.h>
 #include "main.h"
 #include "cmsis_os.h"
 
@@ -45,13 +46,20 @@
 ADC_HandleTypeDef hadc1;
 
 /* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
-  .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 128 * 4
-};
+//osThreadId_t defaultTaskHandle;
+//const osThreadAttr_t defaultTask_attributes = {
+//  .name = "defaultTask",
+//  .priority = (osPriority_t) osPriorityNormal,
+//  .stack_size = 128 * 4
+//};
 /* USER CODE BEGIN PV */
+
+osThreadId_t mainTaskHandle;
+const osThreadAttr_t mainTask_attributes = {
+		.name = "mainTask",
+		.priority = (osPriority_t) osPriorityNormal,
+		.stack_size = 32*4
+};
 
 /* USER CODE END PV */
 
@@ -59,7 +67,6 @@ const osThreadAttr_t defaultTask_attributes = {
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
-void StartDefaultTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -124,7 +131,8 @@ int main(void)
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  //defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  mainTaskHandle = osThreadNew(mainTask, &hadc1, &mainTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -287,31 +295,36 @@ static void MX_GPIO_Init(void)
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
-{
-  /* USER CODE BEGIN 5 */
-
-	// ADC
-	if (HAL_ADC_Start(&hadc1) != HAL_OK)
-	{
-		for(;;)
-		{
-			// ADC failed to start
-		}
-	}
-
-  /* Infinite loop */
-	uint32_t adcvalue = 0;
-	uint32_t timeout = 100;
-  for(;;)
-  {
-	  if (HAL_ADC_PollForConversion(&hadc1, timeout) == HAL_OK)
-	  {
-		  adcvalue = HAL_ADC_GetValue(&hadc1);
-	  }
-  }
-  /* USER CODE END 5 */ 
-}
+//void StartDefaultTask(void *argument)
+//{
+//  /* USER CODE BEGIN 5 */
+//
+//	// ADC
+//	if (HAL_ADC_Start(&hadc1) != HAL_OK)
+//	{
+//		for(;;)
+//		{
+//			// ADC failed to start
+//		}
+//	}
+//
+//  /* Infinite loop */
+//	uint32_t timeout = 100;
+//	uint32_t adcvalue = 0;
+//	uint32_t min_adcvalue = UINT32_MAX;
+//  for(;;)
+//  {
+//	  if (HAL_ADC_PollForConversion(&hadc1, timeout) == HAL_OK)
+//	  {
+//		  adcvalue = HAL_ADC_GetValue(&hadc1);
+//		  if (adcvalue < min_adcvalue)
+//		  {
+//			  min_adcvalue = adcvalue;
+//		  }
+//	  }
+//  }
+//  /* USER CODE END 5 */
+//}
 
  /**
   * @brief  Period elapsed callback in non blocking mode
